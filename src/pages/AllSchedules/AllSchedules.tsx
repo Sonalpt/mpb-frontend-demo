@@ -1,19 +1,19 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import MobileNavbar from "../components/MobileNavBar";
+import Navbar from "../../components/Navbar";
+import MobileNavbar from "../../components/MobileNavBar";
+import useGetAllSchedules from "./Hooks/useGetAllSchedules";
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../helpers/AuthContext";
+import { AuthContext } from "../../helpers/AuthContext";
 
-const OldSchedules = () => {
+const AllSchedules = () => {
 
       const { authState, setAuthState } = useContext(AuthContext);
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const params = useParams();
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const id = params ? parseInt(params.id) : 0
-
 
       let navigate = useNavigate();
 
@@ -22,50 +22,11 @@ const OldSchedules = () => {
       const [listOfPlannings, setListOfPlannings] = useState([]);
       const [isLoaded, setIsLoaded] = useState(false);
 
+      const { getSchedules } = useGetAllSchedules();
+
       useEffect(() => {
-            if (!localStorage.getItem("accessToken")) {
-                  navigate("/login");
-            } else {
-                  axios
-                        .get(
-                              "https://mpb-backend-demo-production.up.railway.app/auth/verifyToken",
-                              {
-                                    headers: { accessToken: localStorage.getItem("accessToken") },
-                              }
-                        )
-                        .then((response) => {
-                              if (response.data.error) {
-                                    alert("Session expirée, veuillez vous reconnecter !");
-                                    localStorage.removeItem("accessToken");
-                                    navigate("/login");
-                              } else {
-                                    setAuthState({
-                                          username: response.data.username,
-                                          nom_complet: response.data.complete_name,
-                                          fonction: response.data.function,
-                                          id: response.data.id,
-                                          isDirection: response.data.isDirection,
-                                          status: true,
-                                    });
-                                    axios
-                                          .get("https://mpb-backend-demo-production.up.railway.app/employee", {
-                                                headers: { accessToken: localStorage.getItem("accessToken") },
-                                          })
-                                          .then((response) => {
-                                                setListOfEmployees(response.data.listOfEmployees);
-                                          })
-                                    axios
-                                          .get("https://mpb-backend-demo-production.up.railway.app/planning", {
-                                                headers: { accessToken: localStorage.getItem("accessToken") },
-                                          })
-                                          .then((response) => {
-                                                setListOfPlannings(response.data.listOfPlannings);
-                                                setIsLoaded(true);
-                                                
-                                          });
-                              }
-                        })
-            }
+            getSchedules(setAuthState, setListOfEmployees, setListOfPlannings, setIsLoaded);
+            console.log(listOfPlannings)
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [!listOfPlannings]);
 
@@ -122,4 +83,4 @@ const OldSchedules = () => {
 
 }
 
-export default OldSchedules;
+export default AllSchedules;

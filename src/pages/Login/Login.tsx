@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { AuthContext } from "../helpers/AuthContext";
+import { AuthContext } from "../../helpers/AuthContext";
 import {
       BrowserRouter as Router,
       Route,
@@ -10,6 +10,8 @@ import {
       Link,
       useNavigate,
 } from "react-router-dom";
+import useLogin from "./useLogin";
+
 
 const Login = () => {
       useEffect(() => {
@@ -21,7 +23,6 @@ const Login = () => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { setAuthState } = useContext(AuthContext);
 
-      
       const initialValues = {
             username: "",
             password: "",
@@ -36,8 +37,7 @@ const Login = () => {
                   .required("This field is required!")
                   .matches(
                         /^(?=[a-zA-Z0-9._]{5,15}$)(?!.*[_.]{2})[^_.].*[^_.]$/,
-                        
-"The username must not contain any special characters."
+                        "The username must not contain any special characters."
                   ),
             password: Yup.string()
                   .min(8, "The password must be at least 8 characters.")
@@ -49,36 +49,7 @@ const Login = () => {
                   ),
       });
 
-      
-
-
-      const onSubmit = (data: any) => {
-            axios.post(
-                  "https://mpb-backend-demo-production.up.railway.app/auth/login",
-                  data
-            ).then((response) => {
-                  if (response.data.error) {
-                        alert(response.data.error);
-                  } else {
-                        localStorage.setItem(
-                              "accessToken",
-                              response.data.token
-                        );
-                        setAuthState({
-                              username: response.data.username,
-                              nom_complet: response.data.complete_name,
-                              fonction: response.data.function,
-                              id: response.data.id,
-                              isDirection: response.data.isDirection,
-                              status: true,
-                        });
-                      
-                        navigate("/");
-                  }
-            });
-      };
-
-    
+      const { onSubmit } = useLogin();
 
       return (
             <>

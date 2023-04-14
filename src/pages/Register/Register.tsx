@@ -10,6 +10,7 @@ import {
       useNavigate,
       Navigate,
 } from "react-router-dom";
+import useRegister from "./useRegister";
 
 function Register() {
         const navigate = useNavigate();
@@ -50,21 +51,7 @@ function Register() {
      .oneOf([Yup.ref('password'), null], "The passwords must match.")
       });
 
-        const onSubmit = (data: any) => {
-              axios.post(
-                    "https://mpb-backend-demo-production.up.railway.app/auth/register",
-                    data
-              ).then((response) => {
-                    if (response.data === "The user already exists.") {
-                          alert(`The user ${data.username} already exists !`);
-                    } else if (response.data === "SUCCESS") {
-                          alert("You have successfully created a new account.");
-                          navigate("/");
-                    }
-              });
-        };
-
-      
+      const { onSubmit } = useRegister();
 
       return (
             <>

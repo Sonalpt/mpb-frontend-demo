@@ -11,11 +11,11 @@ import { AuthContext } from "./helpers/AuthContext";
 import { PlanningContext} from './helpers/PlanningContext';
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import NewSchedule from "./pages/NewSchedule";
-import DisplayedSchedule from "./pages/DisplayedSchedule";
-import OldSchedules from "./pages/OldSchedules";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import NewSchedule from "./pages/NewSchedule/NewSchedule";
+import DisplayedSchedule from "./pages/DisplayedSchedule/DisplayedSchedule";
+import AllSchedules from "./pages/AllSchedules/AllSchedules";
 
 function App() {
       const [authState, setAuthState] = useState({
@@ -66,7 +66,7 @@ function App() {
                                           <Route
                                                 path="/"
                                                 
-                                                element={<OldSchedules />}
+                                                element={<AllSchedules />}
                                           />
                                     </Routes>
                               </Router>
