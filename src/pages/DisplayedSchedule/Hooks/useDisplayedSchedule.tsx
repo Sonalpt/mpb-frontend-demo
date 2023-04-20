@@ -241,7 +241,6 @@ const useDisplayedSchedule = () => {
               let totalInput = document.querySelector(`#employee_row_${key} td:nth-child(10)`)
               totalInput.textContent = total.toString();
               planningsToFetch.push(planning);
-              console.log(planningsToFetch);
               setTdModificationState(1);
         }     
       

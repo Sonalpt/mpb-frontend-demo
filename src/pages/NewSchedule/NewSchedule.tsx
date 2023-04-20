@@ -128,7 +128,7 @@ const NewSchedule = () => {
                                           <input></input>
                                     </td>
                                                 <td>00</td>
-                                                <td onClick={(event) => createPlanningObject(employee, key, listOfPlannings)}>Validation</td>
+                                                <td onClick={(event) => createPlanningObject(employee, key, listOfPlannings)}>Confirm</td>
 
                               </tr>
                                     )

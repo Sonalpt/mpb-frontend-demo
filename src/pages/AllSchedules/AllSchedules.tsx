@@ -26,7 +26,6 @@ const AllSchedules = () => {
 
       useEffect(() => {
             getSchedules(setAuthState, setListOfEmployees, setListOfPlannings, setIsLoaded);
-            console.log(listOfPlannings)
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [!listOfPlannings]);
 

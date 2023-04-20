@@ -10,7 +10,7 @@ import {
       useNavigate,
       Navigate,
 } from "react-router-dom";
-import useRegister from "./useRegister";
+import useRegister from "./Hooks/useRegister";
 
 function Register() {
         const navigate = useNavigate();
@@ -82,7 +82,7 @@ function Register() {
                                     />
                                     <Field
                                           autoComplete="off"
-                                          id="inputCreatePost"
+                                          id="username"
                                           name="username"
                                           placeholder="(Ex. John123...)"
                                     />
@@ -93,7 +93,7 @@ function Register() {
                                     />
                                     <Field
                                           autoComplete="off"
-                                          id="inputCreatePost"
+                                          id="email"
                                           name="email"
                                           placeholder="(Ex. hello@gmail.com)"
                                     />
@@ -106,7 +106,7 @@ function Register() {
                                     <Field
                                           autoComplete="off"
                                           type="password"
-                                          id="inputCreatePost"
+                                          id="password"
                                           name="password"
                                           placeholder="Your password..."
                                     />
@@ -118,7 +118,7 @@ function Register() {
                                     <Field
                                           autoComplete="off"
                                           type="password"
-                                          id="inputCreatePost"
+                                          id="passwordConfirm"
                                           name="passwordConfirm"
                                           placeholder="Your password..."
                                     />

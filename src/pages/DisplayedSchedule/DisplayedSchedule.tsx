@@ -216,9 +216,9 @@ useEffect(() => {
                                                                         <span className="spanInput">{value.dimanche[2]} - {value.dimanche[3]}</span>
                                                                   </td>
                                                                   <td>{value.total_horaires}</td>
-                                                                  {tdModificationState === 2 ? null : <td onClick={() => { planningModificationStart(key, setTdModificationState) }}>Modifier</td>}
+                                                                  {tdModificationState === 2 ? null : <td onClick={() => { planningModificationStart(key, setTdModificationState) }}>Edit</td>}
                                                                   {tdModificationState === 2 ? (
-                                                                        <td onClick={() => {modifyPlanningObject(key, listOfPlanningsSorted, setTdModificationState); onSubmit() }}>Envoyer</td>
+                                                                        <td onClick={() => {modifyPlanningObject(key, listOfPlanningsSorted, setTdModificationState); onSubmit() }}>Send</td>
                                                                   ) : null}
                                                             </tr>
                                                       )
