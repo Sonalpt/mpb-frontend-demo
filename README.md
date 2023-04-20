@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Maison Plisson Staff
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Maison Plisson Staff is a full-stack web application that allows the management of the schedules of employees in a luxury grocery store, so that they can consult them from their smartphones. If a schedule were to be modified, the affected employees would receive a notification email directly. The application also allows for printing of the schedule.
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+https://mpb-frontend-demo.vercel.app/login
 
-### `npm start`
+## Getting started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To run the project locally, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Clone the repository to your local machine.
+- Navigate to the project directory and run npm install to install all dependencies.
+- Run npm start to start the development server.
 
-### `npm test`
+## Credentials for testing properly
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### If you want to test every features with this demo:
 
-### `npm run build`
+Maison Plisson Demo Accounts:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### For the direction :
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+mlpDirection
+mlpPublic2023*
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### For the employee :
 
-### `npm run eject`
+mlpTwo
+mlpPublic2023*
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### The email account related to the testing employee, so you can check if emails are received correctly :
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+mlppublictwo@gmail.com
+mlpPublic2023*
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Built with
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Front-End :
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React
+- Typescript
+- Sass
+- Moment.js
 
-### Code Splitting
+Back-End :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- SendInBlue API
+- Node.js
+- Express
+- Sequelize
+- MySQL
 
-### Analyzing the Bundle Size
+## Context and why I've created this application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Find every details on my reddit post : https://www.reddit.com/r/reactjs/comments/12jiu2o/an_app_to_manage_schedules_for_a_luxury_grocery/
 
-### Making a Progressive Web App
+## Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Managing schedules with React and Moment.Js
+- Export current schedule as PDF for printing
+- Using SendInBlue API to send an email to all employees who get their schedules modified
+- MySQL Database to store all schedules and employees accounts so everything is available in real time
+- Regex for Sign-Up/Login function, and for schedules, so we avoid any possible errors from typing.
 
-### Advanced Configuration
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- remsB, Web Developer
